@@ -1,0 +1,13 @@
+# An Example of pod creation in kubernetes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ex-pod
+  namespace: ex-ns
+  labels:
+    app: exapp
+spec:
+  containers:
+  - name: exapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
