@@ -1,0 +1,17 @@
+# Arguments can be added inside the kubernetes pods like:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newapp-args-pod
+  labels:
+    app: newapp
+spec:
+  containers:
+  - name: newapp-container
+    image: busybox
+    command: ['echo']
+    args: ['This is the custom argument to be printed']
+  restartPolicy: Never
+  
+  # Restartpolicy is set to never because after echoing the command pod is going to exit and kubernetes will try to restart the pod.
