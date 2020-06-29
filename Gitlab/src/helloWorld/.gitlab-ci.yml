@@ -1,0 +1,24 @@
+image: golang:1.14.4-alpine3.11
+
+before_script:
+  - go version
+
+stages:
+  - clean
+  - build
+  - test
+
+clean_main:
+  stage: clean
+  script:
+    - go clean
+
+build_main:
+  stage: build
+  script:
+    - go mod init unixcloudfusion.in/ankit/repo
+    
+test_main:
+  stage: test
+  script:
+    - go test
